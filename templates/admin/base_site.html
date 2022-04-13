@@ -1,0 +1,12 @@
+{% extends 'admin/base.html' %}
+
+{% load static %}
+{% block branding %}
+    <h1 id="head">
+        <img src="{% static 'img/fortress_logo.JPG-removebg-preview.png'%}" alt="" class="img-fluid" height="30px" width="100px">
+        <span style="color:#2d335c;">Admin</span><span style="color: rgb(240, 22, 22);"> Login</span>
+    </h1>
+{% endblock %}
+{% block extrastyle %}
+    <link rel="stylesheet" href="{% static 'css/admin.css' %}">
+{% endblock %}

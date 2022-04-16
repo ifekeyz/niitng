@@ -23,121 +23,69 @@
         <section id="values" class="values ">
             <div class="container" data-aos="fade-up">
 
+
                 
 
                     <div class="col-lg-12 entries">
 
                         <div class="row">
+                            {% if courses %}
+                                    {% for course in courses %}
+                                    <div class="col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                                        <a href="{% url 'course' course.id %}">
+                                        <div class="box">
+                                            <img src="{{course.image.url}}" class="img-fluid" alt="">
+                                            <h3>{{course.name}}</h3>
+        
+                                        </div>
+                                    </a>
+                                    </div>
+                                    {% endfor %}
+                            {% else %}
+                            <div class="col-md-12">
+                                <h3>No Course available</h3>
+                              </div>
+                            {% endif %}
                            
-                            <div class="col-lg-3" data-aos="fade-up" data-aos-delay="200">
-                                <a href="course-single.html">
-                                <div class="box">
-                                    <img src="static/img/191bf3e6-f5e5-4430-abb9-2294aa3bb728-java-logo-512x512.png" class="img-fluid" alt="">
-                                    <h3>Java</h3>
-
-                                </div>
-                            </a>
-                            </div>
+                            
                        
-                            <div class="col-lg-3 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="400">
-                                <a href="course-single.html">
-                                <div class="box">
-                                    <img src="static/img/weblogo.jpg" class="img-fluid" alt="">
-                                    <br>
-                                    <h3>Web development</h3>
-
-                                </div>
-                            </a>
-                            </div>
-
-                            <div class="col-lg-3 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="600">
-                              <a href="course-single.html">
-                                <div class="box">
-                                    <img src="static/img/weblogo.jpg" class="img-fluid" alt="">
-                                    <br>
-                                    <h3>Mobile development</h3>
-
-                                </div>
-                              </a>
-                            </div>
-                            <div class="col-lg-3 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="600">
-                              <a href="course-single.html">
-                              <div class="box">
-                                  <img src="static/img/weblogo.jpg" class="img-fluid" alt="">
-                                  <br>
-                                  <h3>Mobile development</h3>
-
-                              </div>
-                            </a>
-                          </div>
+                           
 
                         </div>
-                        <div class="row mt-5">
-                            <a href="course-single.html">
-                            <div class="col-lg-3" data-aos="fade-up" data-aos-delay="200">
-                                <div class="box">
-                                    <img src="static/img/191bf3e6-f5e5-4430-abb9-2294aa3bb728-java-logo-512x512.png" class="img-fluid" alt="">
-                                    <h3>Java</h3>
-
-                                </div>
-                            </a>
-                            </div>
-
-                            <div class="col-lg-3 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="400">
-                                <a href="course-single.html">
-                                <div class="box">
-                                    <img src="static/img/weblogo.jpg" class="img-fluid" alt="">
-                                    <br>
-                                    <h3>Web development</h3>
-
-                                </div>
-                                </a>
-                            </div>
-
-                            <div class="col-lg-3 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="600">
-                                <a href="course-single.html">
-                                <div class="box">
-                                    <img src="static/img/weblogo.jpg" class="img-fluid" alt="">
-                                    <br>
-                                    <h3>Mobile development</h3>
-
-                                </div>
-                            </a>
-                            </div>
-                            <div class="col-lg-3 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="600">
-                              <a href="course-single.html">
-                              <div class="box">
-                                  <img src="static/img/weblogo.jpg" class="img-fluid" alt="">
-                                  <br>
-                                  <h3>Mobile development</h3>
-
-                              </div>
-                          </a>
-                          </div>
-
-                        </div>
+                    </div>
                         
         <header class="section-header mt-5">
           <h2>Our Diploma Courses</h2>
           
         </header>
-                        <div class="col-lg-12 ">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#course1">
-                                Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?
-                              </button>
-                            </h2>
-                            <div id="course1" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
-                              <div class="accordion-body">
-                                Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id
-                                donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque
-                                elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+        <div class="col-lg-12 ">
+                            {% if diplomas %}
+                                    {% for diploma in diplomas %}
+                                    
+                                        <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#course1">
+                                            {{diploma.name}}
+                                          </button>
+                                        </h2>
+                                        <div id="course1" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
+                                          <div class="accordion-body">
+                                           {{diploma.description}}.
+                                          </div>
+                                        </div>
+                                    </div>
+                                
+                                     
+                                    {% endfor %}
+                            {% else %}
+                            <div class="col-md-12">
+                                <h3>No Course available</h3>
                               </div>
-                            </div>
-                          </div>
+                            {% endif %}
+                       
                         </div>
+                    
 
                     </div><!-- End blog entries list -->
                     

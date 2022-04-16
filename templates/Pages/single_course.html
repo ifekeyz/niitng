@@ -1,0 +1,344 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+
+  <main id="main">
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li>Course details</li>
+        </ol>
+        <h2>{{course.name}}</h2>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Blog Section ======= -->
+    <section id="blog" class="blog">
+      <div class="container" data-aos="fade-up">
+        <div class="row">
+          <div class="col-lg-8 entries">
+            
+
+              <article class="entry">
+  
+                <div class="entry-img">
+                  <img src="{{course.image1.url}}" alt="" class="img-fluid">
+                </div>
+  
+                <h2 class="entry-title">
+                  {{course.name}}
+                </h2>
+  
+                <div class="entry-meta">
+                  <ul>
+                    <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="{% url 'course' course.id %}">{{course.posted_by}}</a></li>
+                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="{% url 'course' course.id %}"><time>{{course.posted_time}}</time></a></li>
+                    <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="{% url 'course' course.id %}">12
+                        Comments</a></li>
+                  </ul>
+                </div>
+  
+                <div class="entry-content">
+                  <p>
+                    {{course.description}}
+                  </p>
+                  <h2 class="entry-meta">
+                    ABOUT COURSE
+                  </h2>
+                  <p>
+                   {{course.about_course}}
+                  </p>
+                  <h2 class="entry-meta">
+                    REQUIREMENTS
+                  </h2>
+                  <p>
+                    {{course.requirement}}
+                  </p>
+                  <h2 class="entry-meta">
+                    FEES AND FUNDING
+  
+                  </h2>
+                  <p>To get the fee for the course kindly clikck on the <a href="#Apply">apply button</a> of you contact
+                    us</p>
+                  <div class="read-more">
+                    <a href="#Apply">Apply Now</a>
+                  </div>
+                </div>
+  
+              </article><!-- End blog entry -->
+              
+          </div>
+          <div class="col-lg-4 blog mt-0">
+            
+
+              <div class="sidebar">
+
+                <h3 class="sidebar-title">Search for a course</h3>
+                <div class="sidebar-item search-form">
+                  <form action="">
+                    <input type="text">
+                    <button type="submit"><i class="bi bi-search"></i></button>
+                  </form>
+                </div><!-- End sidebar search formn-->
+
+
+
+                <h3 class="sidebar-title">Recent course update</h3>
+                <div class="sidebar-item recent-posts">
+                  {% if courses %}
+                    {% for course in courses %}
+                  <div class="post-item clearfix">
+                    <img src="{{course.image.url}}" alt="">
+                    <h4><a href="{% url 'course' course.id %}">{{course.name}}</a></h4>
+                    <time datetime="2020-01-01">{{course.posted_time}}</time>
+                  </div>
+                    {% endfor %}
+                  {% else %}
+                  {% endif %}
+
+                  
+
+                </div><!-- End sidebar recent posts-->
+              </div><!-- End sidebar -->
+          </div>
+        </div>
+            </div>
+          </div>
+          <div class="container">
+          <article class="entry">
+            <h3 class="entry-meta text-center">Curriculum breakdown for Java</h3>
+            <div class="col-lg-12">
+              <!-- F.A.Q List 1-->
+              <div class="accordion accordion-flush" id="faqlist1">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#faq-content-1">
+                      Non consectetur a erat nam at lectus urna duis? <br>
+
+                    </button>
+                  </h2>
+                  <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
+                    <div class="accordion-body">
+                      <small>Duration: 2 weeks</small> <br>
+                      Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur
+                      gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#faq-content-2">
+                      Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque? <br>
+
+                    </button>
+                  </h2>
+                  <div id="faq-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
+                    <div class="accordion-body">
+                      <small>Duration: 3 weeks</small> <br>
+                      Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet
+                      id
+                      donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque
+                      elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#faq-content-3">
+                      Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi?
+                      <small>Week 3</small>
+                    </button>
+                  </h2>
+                  <div id="faq-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
+                    <div class="accordion-body">
+                      Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar
+                      elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque
+                      eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis
+                      sed odio morbi quis
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#faq2-content-1">
+                      Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla? <br />
+                    </button>
+                  </h2>
+                  <div id="faq2-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist2">
+                    <div class="accordion-body">
+                      Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet
+                      id
+                      donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque
+                      elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <!-- F.A.Q List 2-->
+              <div class="accordion accordion-flush" id="faqlist2">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#faq2-content-2">
+                      Tempus quam pellentesque nec nam aliquam sem et tortor consequat?
+                    </button>
+                  </h2>
+                  <div id="faq2-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist2">
+                    <div class="accordion-body">
+                      Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in.
+                      Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est.
+                      Purus gravida quis blandit turpis cursus in
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#faq2-content-3">
+                      Varius vel pharetra vel turpis nunc eget lorem dolor?
+                    </button>
+                  </h2>
+                  <div id="faq2-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist2">
+                    <div class="accordion-body">
+                      Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer
+                      malesuada
+                      nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut
+                      venenatis tellus in metus vulputate eu scelerisque. Pellentesque diam volutpat commodo sed egestas
+                      egestas fringilla phasellus faucibus. Nibh tellus molestie nunc non blandit massa enim nec.
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      </div><!-- End blog sidebar -->
+
+    </section><!-- End F.A.Q Section-->
+  </section>
+    </div>
+    <section id="values" class="values ">
+      <div class="container" data-aos="fade-up">
+
+         
+        <header class="section-header">
+          <h2>Course Varieties</h2>
+        
+        </header>
+              <div class="col-lg-12 entries">
+
+                  <div class="row">
+                    {% if courses %}
+                    {% for course in courses %}
+                     
+                      <div class="col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                          <a href="{% url 'course' course.id %}">
+                          <div class="box">
+                              <img src="{{course.image.url}}" class="img-fluid" alt="">
+                              <h3>{{course.name}}</h3>
+
+                          </div>
+                      </a>
+                      </div>
+                      {% endfor %}
+                  {% else %}
+                  {% endif %}
+                  </div>
+                  </div>
+                 
+
+              </div><!-- End blog entries list -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="Apply" class="contact">
+
+      <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+
+          <p>Apply here</p>
+        </header>
+
+        <div class="row gy-4">
+          <div class="col-lg-12">
+            <form action="forms/contact.php" method="post" class="php-email-form">
+              <div class="row gy-4">
+
+                <div class="col-md-6">
+                  <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                </div>
+
+                <div class="col-md-6 ">
+                  <input type="email" class="form-control" name="email" placeholder="Your Email" required>
+                </div>
+
+                <div class="col-md-6">
+                  <input type="text" name="number" class="form-control" placeholder="phone number" required>
+                </div>
+
+                <div class=" col-md-6 ">
+                  <select class="form-control col-md-6" name="email" placeholder="Your Location" required>
+                    <option value="">Choose the nearest branch to you</option>
+                    <option value=""> Ikorodu </option>
+                    <option value="">Ajah</option>
+                    <option value="">Surelere</option>
+                    <option value="">Ibadan</option>
+                    <option value="">Festac</option>
+
+                  </select>
+                </div>
+
+                <div class="col-md-12">
+                  <input type="text" class="form-control" name="subject" placeholder="Course type" required>
+                </div>
+
+                <div class="col-md-12">
+                  <textarea class="form-control" name="message" rows="6" placeholder="Message us (Optional)"></textarea>
+                </div>
+
+                <div class="col-md-12 text-center">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Your message has been sent. Thank you!</div>
+
+                  <button type="submit">Submit form</button>
+                </div>
+
+              </div>
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- End Contact Section -->
+    </section><!-- End Blog Section -->
+
+
+  </main><!-- End #main -->
+  {% endblock %}
